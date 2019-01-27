@@ -16,15 +16,16 @@
 makeCacheMatrix <- function(x = matrix()) {
   m <-NULL
   set <-function(y){
-  x <<- y
-  m <<- NULL
+    x <<- y
+    m <<- NULL                # Set m to NULL if we import a new matrix
 }
 get <- function() x
 setmatrix <- function(solve) m <<- solve
 getmatrix <- function() m
-list(set=set, get=get,
-   setmatrix = setmatrix,
-   getmatrix = getmatrix)
+list(set=set,                 # Gives the name 'set' to the set() function defined above 
+     get=get,                 # Gives the name 'get' to the get() function defined above
+     setmatrix = setmatrix,   # Gives the name 'setmatrix' to the setmatrix() function defined above
+     getmatrix = getmatrix)   # Gives the name 'getmatrix' to the getmatrix() function defined above
 }
 
 
@@ -32,13 +33,13 @@ list(set=set, get=get,
 ## using the function solve(), which is an R built-in function which finds the inverse of invertible matrices.
 
 cacheSolve <- function(x = matrix(), ...) {
-    m <- x$getmatrix()
-    if(!is.null(m)){
-      message("Getting Chached Data of Inverse of Matrix")
-      return(m)
+  m <- x$getmatrix()
+  if(!is.null(m)){
+    message("Getting Chached Data of Inverse of Matrix")
+    return(m)
     }
-    matrix <- x$get()
-    m <- solve(matrix, ...)
-    x$setmatrix(m)
-    m
+  matrix <- x$get()
+  m <- solve(matrix, ...)
+  x$setmatrix(m)
+  m
 }
