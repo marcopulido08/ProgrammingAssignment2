@@ -1,4 +1,15 @@
-## The following two functions create a special matric that can cache its inverse and find the inverse of a matrix.
+## Coursera: R Programming
+## Programming Assignment 2
+## Marco Pulido
+
+## Solution based on example provided and the link provided in the lecture titled "Demistifying MakeVector Article",
+## https://github.com/lgreski/datasciencectacontent/blob/master/markdown/rprog-breakingDownMakeVector.md
+## 
+## This solution is a variation of one provided by me in 2015.
+##
+## The program consists of two functions, makeCacheMatrix and cacheSolve.
+## The first function, makeCacheMatrix, caches the inverse of its matrix, if it exists.
+## The second function, cacheSolve, calculates the inverse of the given matrix if it doesn't exist.
 
 ## This function creates a special "matrix" object that can cache its inverse.
 
